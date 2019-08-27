@@ -1,0 +1,58 @@
+buildscript{
+    repositories {
+        mavenCentral()
+        mavenLocal()
+    }
+    dependencies{
+        classpath 'org.golemites:golemites-gradle-plugin:0.1.0-SNAPSHOT'
+    }
+}
+
+group "org.golemites.example"
+version "0.1.0-SNAPSHOT"
+
+apply plugin: 'maven-publish'
+apply plugin: 'java-library'
+
+compileJava {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+    options.compilerArgs += '-parameters'
+}
+
+compileTestJava {
+    options.compilerArgs += '-parameters'
+}
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+    maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
+    maven { url "http://repo.maven.apache.org/maven2" }
+}
+
+test {
+    useJUnitPlatform()
+}
+
+dependencies {
+    // The only true dependency at compile time
+    implementation (group: "org.golemites.gestalt.repository", name: "gestalt-webapp-simple", version: "0.1.0-SNAPSHOT", transitive: false)
+
+    // JUnit 5 Extensions
+    testImplementation 'org.golemites:golemites-test-support:0.1.0-SNAPSHOT'
+
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.5.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.5.1'
+    testRuntimeOnly 'org.apache.logging.log4j:log4j-core:2.11.1'
+    testRuntimeOnly 'org.apache.logging.log4j:log4j-slf4j-impl:2.11.1'
+
+}
+
+apply plugin: 'org.golemites.application.plugin'
+
+golemites {
+    pushTo = org.golemites.api.PushTarget.REGISTRY
+    repository = "eu.gcr.io/golemite/${project.name}"
+    name = project.name
+}
