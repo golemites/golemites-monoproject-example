@@ -46,6 +46,8 @@ dependencies {
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.5.1'
     testRuntimeOnly 'org.apache.logging.log4j:log4j-core:2.11.1'
     testRuntimeOnly 'org.apache.logging.log4j:log4j-slf4j-impl:2.11.1'
+    implementation 'org.assertj:assertj-core:3.13.2'
+    testCompile 'io.rest-assured:rest-assured:4.0.0'
 
 }
 

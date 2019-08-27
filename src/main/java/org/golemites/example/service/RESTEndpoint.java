@@ -1,4 +1,4 @@
-package org.golemites.example.calculator.internal;
+package org.golemites.example.service;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.ServiceScope;
 
