@@ -14,12 +14,13 @@ import static org.osgi.service.jaxrs.whiteboard.JaxrsWhiteboardConstants.JAX_RS_
         property = {
                 JAX_RS_APPLICATION_SELECT + "=(osgi.jaxrs.name=.default)",
                 JAX_RS_RESOURCE + "=true",
+                "who=bar"
         },
         scope = ServiceScope.PROTOTYPE,
-        service = RESTEndpoint.class
+        service = ExampleRESTEndpoint.class
 )
 @Path( "/" )
-public class RESTEndpoint {
+public class ExampleRESTEndpoint {
 
     @GET
     @Path("/foo")

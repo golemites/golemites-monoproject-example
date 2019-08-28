@@ -15,11 +15,11 @@ import static org.hamcrest.CoreMatchers.equalTo;
 class EndpointTest {
 
     /**
-     * Note that this service is only visible when the package of {@link RESTEndpoint}
+     * Note that this service is only visible when the package of {@link ExampleRESTEndpoint}
      * is actually exported in package-info.java.
      */
     @Test
-    void testServiceIsAvailable(RESTEndpoint endpoint) {
+    void testServiceIsAvailable(ExampleRESTEndpoint endpoint) {
         Assertions.assertThat(endpoint.sayHello()).isEqualTo("{\"message\" : \"Mono1\"}");
     }
 

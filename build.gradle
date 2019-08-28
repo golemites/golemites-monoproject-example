@@ -54,7 +54,7 @@ dependencies {
 apply plugin: 'org.golemites.application.plugin'
 
 golemites {
-    pushTo = org.golemites.api.PushTarget.REGISTRY
+    pushTo = org.golemites.api.PushTarget.NONE
     repository = "eu.gcr.io/golemite/${project.name}"
     name = project.name
 }
