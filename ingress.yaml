@@ -1,0 +1,20 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ingress-golemites-monoproject-example
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    certmanager.k8s.io/cluster-issuer: letsencrypt
+spec:
+  rules:
+    - host: golemites-monoproject-example.fabrik.rebaze.io
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: golemites-monoproject-example
+              servicePort: 8080
+  tls:
+    - hosts:
+        - golemites-monoproject-example.fabrik.rebaze.io
+      secretName: golemites-monoproject-example-cert # < cert-manager will store the created certificate in this secret.
