@@ -5,7 +5,7 @@ buildscript{
         jcenter()
     }
     dependencies{
-        classpath "biz.aQute.bnd:biz.aQute.bnd.gradle:4.3.0"
+        classpath "biz.aQute.bnd:biz.aQute.bnd.gradle:4.3.1"
         classpath 'org.golemites:golemites-gradle-plugin:0.1.0-SNAPSHOT'
     }
 }
@@ -68,7 +68,7 @@ dependencies {
     repository 'org.apache.felix:org.apache.felix.http.whiteboard:4.0.0'
     repository 'org.apache.aries.spec:org.apache.aries.javax.jax.rs-api:1.0.0'
     repository 'org.apache.felix:org.apache.felix.http.jetty:4.0.14'
-    repository 'org.apache.aries.jax.rs:org.apache.aries.jax.rs.whiteboard:1.0.5'
+    repository 'org.apache.aries.jax.rs:org.apache.aries.jax.rs.whiteboard:1.0.6'
 
     // JUnit 5 Extensions
     testImplementation 'org.golemites:golemites-test-support:0.1.0-SNAPSHOT'
@@ -81,7 +81,6 @@ dependencies {
     testCompile 'io.rest-assured:rest-assured:4.0.0'
 
 }
-
 
 golemites {
     pushTo = org.golemites.api.PushTarget.REGISTRY

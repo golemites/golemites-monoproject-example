@@ -20,10 +20,14 @@ class EndpointTest {
      */
     @Test
     void testServiceIsAvailable(ExampleRESTEndpoint endpoint) {
-        Assertions.assertThat(endpoint.sayHello()).isEqualTo("{\"message\" : \"Mono1\"}");
+        Assertions.assertThat(endpoint.sayHello()).isEqualTo("{\"message\" : \"Mono2\"}");
     }
 
     /**
+     *
+     *
+     *
+     *
      * For this test, no export is required because
      * the service is being accessed as a web-resource (http).
      */
@@ -31,7 +35,7 @@ class EndpointTest {
     void testWebEndpointIsAvailable() {
         get("/foo").then()
                 .statusCode(200)
-                .body("message", equalTo("Mono1"));
+                .body("message", equalTo("Mono2"));
     }
 
 }

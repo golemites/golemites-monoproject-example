@@ -26,6 +26,6 @@ public class ExampleRESTEndpoint {
     @Path("/foo")
     @Produces( MediaType.APPLICATION_JSON )
     public String sayHello() {
-        return "{\"message\" : \"Mono1\"}";
+        return "{\"message\" : \"Mono2\"}";
     }
 }
